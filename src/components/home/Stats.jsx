@@ -8,26 +8,35 @@ export default function Stats() {
     ["24/7", "Emergency Care"],
   ];
 
+  const base = import.meta.env.BASE_URL;
+
   return (
     <section className="relative py-20 overflow-hidden text-white">
       {/* =========================================
-          BACKGROUND IMAGE LAYER - WITH TRUE PARALLAX
+          BACKGROUND IMAGE LAYER 
       ========================================== */}
-      <div
-        className="
-          absolute 
-          inset-0 
-          z-0 
-          bg-fixed 
-          bg-center 
-          bg-cover 
-          bg-no-repeat
-        "
-        style={{
-          // ✅ FIXED: Using import.meta.env.BASE_URL with concatenation
-          backgroundImage: `url("${import.meta.env.BASE_URL}assets/hospital/hero-image.png")`,
-        }}
-      >
+      <div className="absolute inset-0 z-0">
+        {/* 
+          1. DESKTOP: Use bg-fixed for the cool parallax effect.
+             It only applies on screens larger than 1024px (lg).
+        */}
+        <div
+          className="hidden lg:block absolute inset-0 bg-fixed bg-center bg-cover bg-no-repeat"
+          style={{
+            backgroundImage: `url("${base}assets/hospital/hero-image.png")`,
+          }}
+        />
+
+        {/* 
+          2. MOBILE: Use a standard <img> tag.
+             This removes the blurriness, zooming, and "broken scroll" effect.
+        */}
+        <img
+          src={`${base}assets/hospital/hero-image.png`}
+          alt="Background"
+          className="lg:hidden w-full h-full object-cover"
+        />
+
         {/* Reduced Blue Overlay to 50% */}
         <div className="absolute inset-0 bg-[#031b42]/50"></div>
 
@@ -63,7 +72,6 @@ export default function Stats() {
     </section>
   );
 }
-
 // import Reveal from "../common/Reveal";
 
 // export default function Stats() {
