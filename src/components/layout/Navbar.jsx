@@ -1,20 +1,49 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // <--- 1. Import useLocation
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [partnersOpen, setPartnersOpen] = useState(false);
 
-  // =========================================
-  // PAGE LINKS (Changes the page)
-  // =========================================
-  const pageLinks = [];
+  // 2. Get the current URL path
+  const location = useLocation();
 
   // =========================================
-  // ANCHOR LINKS (Scrolling on the Home page)
+  // SMART NAVIGATION HANDLER
   // =========================================
-  // REMOVED the "/" from all of these!
-  // In a sub-folder deployment, "/#about" breaks, but "#about" works perfectly.
+  const handleNavClick = (e, href) => {
+    e.preventDefault(); // Stop the default anchor jump first
+
+    // If we are on a page OTHER than the Home page
+    if (location.pathname !== "/") {
+      // Take them to the Home page first, and append the hash
+      window.location.href = `/NMHS${href}`;
+      return;
+    }
+
+    // If we ARE on the Home page, just smooth scroll to the ID
+    const targetId = href.replace("#", "");
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      // Account for your fixed Navbar height
+      const navbarHeight = 114;
+      const elementPosition =
+        element.getBoundingClientRect().top + window.scrollY - navbarHeight;
+
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
+    }
+
+    setOpen(false); // Close mobile menu
+  };
+
+  // =========================================
+  // PAGE & ANCHOR LINKS
+  // =========================================
+  // We keep the path as "#home" because our handler handles the logic
   const anchorLinks = [
     ["Home", "#home"],
     ["About Us", "#about"],
@@ -22,8 +51,6 @@ export default function Navbar() {
     ["Career", "#career"],
     ["Contact", "#contact"],
   ];
-
-  const closeMobileMenu = () => setOpen(false);
 
   return (
     <header
@@ -43,7 +70,11 @@ export default function Navbar() {
           {/* =========================
               LOGO
           ========================== */}
-          <a href="#home" className="flex items-center gap-3">
+          <a
+            href="#home"
+            onClick={(e) => handleNavClick(e, "#home")}
+            className="flex items-center gap-3"
+          >
             <img
               src="/images/Ngozi Maternity and Hospital Services.jpg"
               alt="Ngozi Maternity and Hospital Services"
@@ -60,6 +91,7 @@ export default function Navbar() {
               <a
                 key={name}
                 href={href}
+                onClick={(e) => handleNavClick(e, href)} // <--- 3. Add the handler here
                 className="
                   relative
                   py-2
@@ -285,6 +317,7 @@ export default function Navbar() {
           ========================== */}
           <a
             href="#appointment-form"
+            onClick={(e) => handleNavClick(e, "#appointment-form")}
             className="
               hidden
               md:inline-flex
@@ -364,7 +397,10 @@ export default function Navbar() {
               <a
                 key={name}
                 href={href}
-                onClick={closeMobileMenu}
+                onClick={(e) => {
+                  handleNavClick(e, href);
+                  setOpen(false);
+                }}
                 className="
                   px-4
                   py-3
@@ -462,7 +498,10 @@ export default function Navbar() {
             {/* Mobile Appointment Button */}
             <a
               href="#appointment-form"
-              onClick={closeMobileMenu}
+              onClick={(e) => {
+                handleNavClick(e, "#appointment-form");
+                setOpen(false);
+              }}
               className="
                 mt-2
                 text-center
@@ -482,7 +521,6 @@ export default function Navbar() {
     </header>
   );
 }
-
 // import { useState } from "react";
 // import { Link } from "react-router-dom";
 
