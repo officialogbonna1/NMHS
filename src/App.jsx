@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+// 1. IMPORT THE PRELOADER
+import Preloader from "./components/common/Preloader";
+
 import TopBar from "./components/layout/TopBar";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
@@ -12,20 +15,16 @@ import Recruitment from "./pages/Recruitment";
 
 // Scroll to top whenever the route changes
 function ScrollToTop() {
-  // 1. We need to read 'search' as well to get the redirect query
   const { pathname, search } = useLocation();
 
   useEffect(() => {
-    // 2. If 404.html redirected us with ?p=/recruitment, fix the URL silently
     const params = new URLSearchParams(search);
     const redirectPath = params.get("p");
 
     if (redirectPath) {
-      // Updates the browser URL without reloading the page
       window.history.replaceState(null, "", redirectPath);
     }
 
-    // 3. Scroll to the top of the page
     window.scrollTo(0, 0);
   }, [pathname, search]);
 
@@ -35,6 +34,9 @@ function ScrollToTop() {
 function App() {
   return (
     <BrowserRouter basename="/NMHS">
+      {/* 2. RENDER THE PRELOADER AT THE TOP */}
+      <Preloader />
+
       <TopBar />
       <Navbar />
 

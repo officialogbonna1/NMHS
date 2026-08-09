@@ -83,7 +83,7 @@ export default function Navbar() {
                src={`${base}assets/hospital/ngozi-logo.jpg`}
             */}
             <img
-              src={`${base}assets/ngozi-logo.jpg`}
+              src={`${base}assets/hospital/ngozi-logo.jpg`}
               alt="Ngozi Maternity and Hospital Services"
               className="h-14 w-auto object-contain rounded-lg"
             />

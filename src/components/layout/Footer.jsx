@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="space-y-6">
             <a href="#home" className="inline-block">
               <img
-                src={`${base}assets/ngozi-logo.jpg`}
+                src={`${base}assets/hospital/ngozi-logo.jpg`}
                 alt="Ngozi Maternity and Hospital Services"
                 className="h-14 w-auto object-contain rounded-lg"
               />
