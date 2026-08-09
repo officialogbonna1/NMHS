@@ -208,7 +208,7 @@ export default function Footer() {
               <p className="text-blue-200/40 text-xs">
                 Designed by
                 <span className="text-white/70 hover:text-white transition-colors ml-1">
-                  MultiTask
+                  TECH-WITH-OG
                 </span>
               </p>
             </div>
