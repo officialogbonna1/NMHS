@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom"; // <--- 1. Import useLocation
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [partnersOpen, setPartnersOpen] = useState(false);
 
-  // 2. Get the current URL path
+  // Get the current URL path
   const location = useLocation();
 
   // =========================================
@@ -17,7 +17,8 @@ export default function Navbar() {
     // If we are on a page OTHER than the Home page
     if (location.pathname !== "/") {
       // Take them to the Home page first, and append the hash
-      window.location.href = `/NMHS${href}`;
+      // FIX: Added a slash (/) between NMHS and the hash
+      window.location.href = `/NMHS/${href}`;
       return;
     }
 
@@ -43,7 +44,6 @@ export default function Navbar() {
   // =========================================
   // PAGE & ANCHOR LINKS
   // =========================================
-  // We keep the path as "#home" because our handler handles the logic
   const anchorLinks = [
     ["Home", "#home"],
     ["About Us", "#about"],
@@ -91,7 +91,7 @@ export default function Navbar() {
               <a
                 key={name}
                 href={href}
-                onClick={(e) => handleNavClick(e, href)} // <--- 3. Add the handler here
+                onClick={(e) => handleNavClick(e, href)}
                 className="
                   relative
                   py-2
