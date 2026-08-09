@@ -2,12 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- 1. Update favicon path to serve from the subfolder -->
+    <link rel="icon" type="image/svg+xml" href="/NMHS/favicon.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nmhs-hospital</title>
+    <title>Ngozi Maternity & Hospital Services</title>
+
+    <!-- 2. CRITICAL FIX: Add the base tag here -->
+    <base href="/NMHS/" />
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- 3. Update the script src to load from the subfolder -->
+    <script type="module" src="/NMHS/src/main.jsx"></script>
   </body>
 </html>

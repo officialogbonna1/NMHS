@@ -75,7 +75,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <img
-              src="/images/Ngozi Maternity and Hospital Services.jpg"
+              src="/assets/Ngozi Maternity and Hospital Services.jpg"
               alt="Ngozi Maternity and Hospital Services"
               className="h-14 w-auto object-contain rounded-lg"
             />
