@@ -7,34 +7,37 @@ export default function DevelopmentAfricaFoundation() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [zoomLevel, setZoomLevel] = useState(1);
 
+  // ✅ Define the base URL once for cleanliness
+  const base = import.meta.env.BASE_URL;
+
   // =========================================
-  // YOUR EXACT 24 IMAGES FROM YOUR FOLDER (UPDATED TO /assets/)
+  // YOUR 24 IMAGES USING BASE_URL (BULLETPROOF)
   // =========================================
   const galleryImages = [
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_25460fed.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_e04a219a.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_bb9c61ac.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_b456c6b2.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_898c5487.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_65aefcde.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_533e4d4a.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_c83255ef.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_ef1c7590.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_2c91b6b0.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-16.49.01_be9f6122.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.38_8a68f3ea.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.38_92c7c520.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_6b1628d4.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_37a55af4.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_c9312a73.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_44952f21.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_975b1990.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_65d27582.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_cedf3859.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_d2ede666.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.40_3f396790.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.40_9e784e19.jpg",
-    "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.40_b4ff3c1c.jpg",
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_25460fed.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_e04a219a.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_bb9c61ac.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_b456c6b2.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_898c5487.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_65aefcde.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_533e4d4a.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_c83255ef.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_ef1c7590.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.08_2c91b6b0.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.49.01_be9f6122.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.38_8a68f3ea.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.38_92c7c520.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_6b1628d4.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_37a55af4.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_c9312a73.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_44952f21.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_975b1990.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_65d27582.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_cedf3859.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_d2ede666.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.40_3f396790.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.40_9e784e19.jpg`,
+    `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.40_b4ff3c1c.jpg`,
   ];
 
   // =========================================
@@ -201,7 +204,7 @@ export default function DevelopmentAfricaFoundation() {
               <div className="flex justify-center md:justify-end items-center">
                 <div className="w-48 md:w-56">
                   <img
-                    src="/assets/hospital/WhatsApp-Image-2025-05-18-at-16.33.57_3ede22e2-e1747589020220.jpg"
+                    src={`${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.33.57_3ede22e2-e1747589020220.jpg`}
                     alt="DAF Logo"
                     className="w-full h-auto object-contain"
                   />
@@ -213,13 +216,13 @@ export default function DevelopmentAfricaFoundation() {
       </section>
 
       {/* =========================================
-    DARK PURPLE "ABOUT US" HERO WITH BACKGROUND IMAGE
-========================================== */}
+          DARK PURPLE "ABOUT US" HERO WITH BACKGROUND IMAGE
+      ========================================== */}
       <section className="relative overflow-hidden py-16 md:py-24">
         {/* BACKGROUND IMAGE LAYER */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_65aefcde.jpg"
+            src={`${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_65aefcde.jpg`}
             alt="Background"
             className="w-full h-full object-cover"
           />
@@ -232,7 +235,7 @@ export default function DevelopmentAfricaFoundation() {
             <Reveal direction="left" delay={100}>
               <div className="bg-white p-2 rounded-xl shadow-2xl transform -rotate-1 hover:rotate-0 transition duration-500">
                 <img
-                  src="/assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_c83255ef.jpg"
+                  src={`${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.48.07_c83255ef.jpg`}
                   alt="Development for Africa Foundation"
                   className="w-full h-[350px] md:h-[450px] object-cover rounded-lg"
                 />
@@ -392,7 +395,7 @@ export default function DevelopmentAfricaFoundation() {
                 healthcare, education and sustainable community development.
               </p>
               <a
-                href="#contact" // <--- FIXED: Removed the leading /
+                href="#contact"
                 className="inline-flex mt-8 px-7 py-3 rounded-xl bg-white text-[#4A0E4E] font-bold hover:bg-purple-50 transition"
               >
                 Get Involved

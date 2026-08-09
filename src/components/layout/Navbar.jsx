@@ -7,6 +7,7 @@ export default function Navbar() {
 
   // Get the current URL path
   const location = useLocation();
+  const base = import.meta.env.BASE_URL; // <--- Define base URL for images
 
   // =========================================
   // SMART NAVIGATION HANDLER
@@ -41,14 +42,16 @@ export default function Navbar() {
   };
 
   // =========================================
-  // PAGE & ANCHOR LINKS
+  // PAGE & ANCHOR LINKS (UPDATED ORDER)
   // =========================================
+  // We moved "Partners" to the end of this list
   const anchorLinks = [
     ["Home", "#home"],
     ["About Us", "#about"],
     ["Services", "#services"],
     ["Career", "#career"],
     ["Contact", "#contact"],
+    ["Partners", "#"], // <--- Moved Partners to the end (last slot)
   ];
 
   return (
@@ -67,7 +70,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 lg:px-6">
         <div className="h-[76px] flex items-center justify-between">
           {/* =========================
-              LOGO
+              LOGO (UPDATED WITH BASE_URL)
           ========================== */}
           <a
             href="#home"
@@ -75,7 +78,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <img
-              src="/assets/Ngozi Maternity and Hospital Services.jpg"
+              src={`${base}assets/ngozi-hospital-logo.jpg`}
               alt="Ngozi Maternity and Hospital Services"
               className="h-14 w-auto object-contain rounded-lg"
             />
@@ -85,8 +88,8 @@ export default function Navbar() {
               DESKTOP NAVIGATION
           ========================== */}
           <nav className="hidden lg:flex items-center gap-6">
-            {/* Anchor Scroll Links */}
-            {anchorLinks.map(([name, href]) => (
+            {/* Render everything EXCEPT Partners normally */}
+            {anchorLinks.slice(0, 5).map(([name, href]) => (
               <a
                 key={name}
                 href={href}
@@ -118,7 +121,7 @@ export default function Navbar() {
             ))}
 
             {/* =========================
-                PARTNERS DROPDOWN
+                PARTNERS DROPDOWN (NOW ON THE RIGHT)
             ========================== */}
             <div
               className="relative"
@@ -391,8 +394,8 @@ export default function Navbar() {
               border-[#031b42]/10
             "
           >
-            {/* Mobile Anchor Links */}
-            {anchorLinks.map(([name, href]) => (
+            {/* Mobile Anchor Links (matching order) */}
+            {anchorLinks.slice(0, 5).map(([name, href]) => (
               <a
                 key={name}
                 href={href}
@@ -415,7 +418,7 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* Mobile Partners */}
+            {/* Mobile Partners (last item) */}
             <div className="mt-1">
               <button
                 type="button"
@@ -475,7 +478,6 @@ export default function Navbar() {
                     Foundation
                   </div>
                   <div className="ml-3 pl-3 border-l border-slate-300 flex flex-col">
-                    {/* FIXED: Changed onClick={closeMobileMenu} to onClick={() => setOpen(false)} */}
                     <Link
                       to="/foundation/ngozi-initiative"
                       onClick={() => setOpen(false)}

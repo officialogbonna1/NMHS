@@ -24,8 +24,8 @@ export default function Stats() {
           bg-no-repeat
         "
         style={{
-          // ✅ FIXED: Updated path to /assets/hospital/
-          backgroundImage: 'url("/assets/hospital/hero-image.png")',
+          // ✅ FIXED: Using import.meta.env.BASE_URL with concatenation
+          backgroundImage: `url("${import.meta.env.BASE_URL}assets/hospital/hero-image.png")`,
         }}
       >
         {/* Reduced Blue Overlay to 50% */}

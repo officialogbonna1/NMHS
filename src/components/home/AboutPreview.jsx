@@ -13,7 +13,7 @@ export default function AboutPreview() {
             <div className="relative group sticky top-24">
               <div className="relative overflow-hidden rounded-3xl shadow-xl">
                 <img
-                  src="/assets/hospital/buidingfront.png"
+                  src={`${import.meta.env.BASE_URL}assets/hospital/building-front.png`}
                   alt="NMHS Hospital"
                   className="
                     w-full

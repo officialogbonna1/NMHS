@@ -1,48 +1,49 @@
 import Reveal from "../common/Reveal";
 
 export default function ServicesPreview() {
+  // Define the base URL once to keep the code clean
+  const base = import.meta.env.BASE_URL;
+
   const services = [
     {
       title: "Maternity",
       desc: "Antenatal care, delivery, postnatal care, family planning, and maternal counseling.",
-      image: "/assets/hospital/Maternity.jpeg",
+      image: `${base}assets/hospital/maternity.jpeg`,
     },
     {
       title: "General Outpatient",
       desc: "Treatment for common illnesses, health consultations, and minor procedures.",
-      image: "/assets/hospital/outpatient.jpeg",
+      image: `${base}assets/hospital/outpatient.jpeg`,
     },
     {
       title: "Laboratory",
       desc: "Routine tests, diagnostic screenings, and basic medical investigations.",
-      image: "/assets/hospital/Laboratory.jpeg",
+      image: `${base}assets/hospital/laboratory.jpeg`,
     },
     {
       title: "Pharmacy",
       desc: "Dispensation of quality, affordable medicines and health products.",
-      image: "/assets/hospital/Pharmacy.png",
+      image: `${base}assets/hospital/pharmacy.png`,
     },
     {
       title: "Emergency Care",
       desc: "Basic stabilization and referral support for urgent health conditions.",
-      image: "/assets/hospital/emergency.jpg",
+      image: `${base}assets/hospital/emergency.jpg`,
     },
     {
       title: "Immunization & Child Welfare",
       desc: "Routine immunizations and monitoring of child growth and development.",
-      // FIXED: Removed the space before .jpeg
-      image: "/assets/hospital/Immunization.jpeg",
+      image: `${base}assets/hospital/immunization.jpeg`,
     },
     {
       title: "Surgery",
       desc: "Essential obstetric and general surgical procedures tailored to the community.",
-      image: "/assets/hospital/Surgery.jpeg",
+      image: `${base}assets/hospital/surgery.jpeg`,
     },
     {
       title: "Health Education & Outreach",
       desc: "Programs raising awareness about maternal/child health, hygiene, and preventive care.",
-      image:
-        "/assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_c9312a73.jpg",
+      image: `${base}assets/hospital/WhatsApp-Image-2025-05-18-at-17.04.39_c9312a73.jpg`,
     },
   ];
 

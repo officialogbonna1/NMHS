@@ -1,6 +1,9 @@
 import Reveal from "../components/common/Reveal";
 
 export default function NgoziInitiative() {
+  // ✅ Define the base URL once
+  const base = import.meta.env.BASE_URL;
+
   return (
     <main className="bg-white min-h-screen">
       {/* =========================================
@@ -33,9 +36,9 @@ export default function NgoziInitiative() {
             <Reveal direction="right" delay={200}>
               <div className="flex justify-center md:justify-end items-center">
                 <div className="w-48 md:w-56">
-                  {/* Updated to /assets/hospital/ */}
+                  {/* ✅ Updated to use BASE_URL */}
                   <img
-                    src="/assets/hospital/WhatsApp-Image-2025-05-18-at-16.31.25_d7edf689-e1748623819589.jpg"
+                    src={`${base}assets/hospital/WhatsApp-Image-2025-05-18-at-16.31.25_d7edf689-e1748623819589.jpg`}
                     alt="NMHI Logo"
                     className="w-full h-auto object-contain"
                   />
@@ -58,9 +61,9 @@ export default function NgoziInitiative() {
             {/* Image Placeholder */}
             <Reveal direction="left" delay={100}>
               <div className="overflow-hidden rounded-2xl shadow-2xl border-2 border-white/10">
-                {/* Updated to /assets/hospital/ */}
+                {/* ✅ Updated to use BASE_URL & renamed file */}
                 <img
-                  src="/assets/hospital/nmhsbuilding.png"
+                  src={`${base}assets/hospital/nmhs-building.png`}
                   alt="Ngozi Maternity and Health Care Initiative"
                   className="w-full h-[350px] md:h-[450px] object-cover"
                 />
@@ -250,7 +253,6 @@ export default function NgoziInitiative() {
                 working to support healthier communities.
               </p>
 
-              {/* FIXED: Removed the leading / */}
               <a
                 href="#contact"
                 className="inline-flex mt-8 px-7 py-3 rounded-xl bg-[#3C83F6] text-white font-bold hover:bg-[#82AEFB] transition"
@@ -264,7 +266,6 @@ export default function NgoziInitiative() {
     </main>
   );
 }
-
 // import Reveal from "../components/common/Reveal";
 
 // export default function NgoziInitiative() {
