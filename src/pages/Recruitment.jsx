@@ -276,7 +276,7 @@ export default function Recruitment() {
                       </label>
                     ))}
                   </div>
-                  <p className="text-xs text-slate-400 mt-2">
+                  <p className="mt-2 text-sm font-bold text-amber-500">
                     * Proficiency in Electronic Medical Records (EMR) systems is
                     highly preferred.
                   </p>
