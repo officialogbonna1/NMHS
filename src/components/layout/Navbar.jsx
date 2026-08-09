@@ -44,14 +44,14 @@ export default function Navbar() {
   // =========================================
   // PAGE & ANCHOR LINKS (REORDERED)
   // =========================================
-  // Contact is now the very last link before the dropdowns
+  // Partners is now before Career
   const anchorLinks = [
     ["Home", "#home"],
     ["About Us", "#about"],
     ["Services", "#services"],
-    ["Career", "#career"],
-    ["Partners", "#"], // <--- Partners moved to 2nd-to-last
-    ["Contact", "#contact"], // <--- Contact is now the very last item!
+    ["Partners", "#"], // <--- Partners moved up
+    ["Career", "#career"], // <--- Career moved down
+    ["Contact", "#contact"], // <--- Contact remains last
   ];
 
   return (
@@ -70,13 +70,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-5 lg:px-6">
         <div className="h-[76px] flex items-center justify-between">
           {/* =========================
-              LOGO (UPDATED WITH BASE_URL)
+              LOGO (FIXED PATH)
           ========================== */}
           <a
             href="#home"
             onClick={(e) => handleNavClick(e, "#home")}
             className="flex items-center gap-3"
           >
+            {/* 
+               NOTE: Make sure ngozi-logo.jpg is in the root of public/assets/.
+               If it is in public/assets/hospital/, change this to:
+               src={`${base}assets/hospital/ngozi-logo.jpg`}
+            */}
             <img
               src={`${base}assets/ngozi-logo.jpg`}
               alt="Ngozi Maternity and Hospital Services"
@@ -88,8 +93,8 @@ export default function Navbar() {
               DESKTOP NAVIGATION
           ========================== */}
           <nav className="hidden lg:flex items-center gap-6">
-            {/* Render everything EXCEPT Contact and Partners normally */}
-            {anchorLinks.slice(0, 4).map(([name, href]) => (
+            {/* Render everything EXCEPT Partners, Career, Contact normally */}
+            {anchorLinks.slice(0, 3).map(([name, href]) => (
               <a
                 key={name}
                 href={href}
@@ -121,7 +126,7 @@ export default function Navbar() {
             ))}
 
             {/* =========================
-                PARTNERS DROPDOWN (2nd to last)
+                PARTNERS DROPDOWN (Before Career)
             ========================== */}
             <div
               className="relative"
@@ -314,7 +319,38 @@ export default function Navbar() {
             </div>
 
             {/* =========================
-                CONTACT (NOW THE VERY LAST LINK)
+                CAREER (Coming after Partners)
+            ========================== */}
+            <a
+              href="#career"
+              onClick={(e) => handleNavClick(e, "#career")}
+              className="
+                relative
+                py-2
+                text-sm
+                font-bold
+                text-[#031b42]
+                transition-all
+                duration-300
+                hover:text-white
+
+                after:absolute
+                after:left-0
+                after:bottom-0
+                after:h-[2px]
+                after:w-0
+                after:bg-white
+                after:transition-all
+                after:duration-300
+
+                hover:after:w-full
+              "
+            >
+              Career
+            </a>
+
+            {/* =========================
+                CONTACT (Now the very last link)
             ========================== */}
             <a
               href="#contact"
@@ -426,7 +462,7 @@ export default function Navbar() {
             "
           >
             {/* Mobile Anchor Links (reordered) */}
-            {anchorLinks.slice(0, 4).map(([name, href]) => (
+            {anchorLinks.slice(0, 3).map(([name, href]) => (
               <a
                 key={name}
                 href={href}
@@ -449,7 +485,7 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* Mobile Partners */}
+            {/* Mobile Partners (Now before Career) */}
             <div className="mt-1">
               <button
                 type="button"
@@ -528,7 +564,28 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Mobile Contact (Last item before appointment) */}
+            {/* Mobile Career */}
+            <a
+              href="#career"
+              onClick={(e) => {
+                handleNavClick(e, "#career");
+                setOpen(false);
+              }}
+              className="
+                px-4
+                py-3
+                rounded-lg
+                text-sm
+                font-bold
+                text-[#031b42]
+                hover:bg-white/60
+                transition
+              "
+            >
+              Career
+            </a>
+
+            {/* Mobile Contact */}
             <a
               href="#contact"
               onClick={(e) => {
