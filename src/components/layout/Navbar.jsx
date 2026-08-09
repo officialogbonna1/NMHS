@@ -17,7 +17,6 @@ export default function Navbar() {
     // If we are on a page OTHER than the Home page
     if (location.pathname !== "/") {
       // Take them to the Home page first, and append the hash
-      // FIX: Added a slash (/) between NMHS and the hash
       window.location.href = `/NMHS/${href}`;
       return;
     }
@@ -476,16 +475,17 @@ export default function Navbar() {
                     Foundation
                   </div>
                   <div className="ml-3 pl-3 border-l border-slate-300 flex flex-col">
+                    {/* FIXED: Changed onClick={closeMobileMenu} to onClick={() => setOpen(false)} */}
                     <Link
                       to="/foundation/ngozi-initiative"
-                      onClick={closeMobileMenu}
+                      onClick={() => setOpen(false)}
                       className="py-3 text-sm font-medium text-slate-600 hover:text-[#031b42] transition"
                     >
                       Ngozi Maternity & Health Care Initiative
                     </Link>
                     <Link
                       to="/foundation/development-africa"
-                      onClick={closeMobileMenu}
+                      onClick={() => setOpen(false)}
                       className="py-3 text-sm font-medium text-slate-600 hover:text-[#031b42] transition"
                     >
                       Development for Africa Foundation
