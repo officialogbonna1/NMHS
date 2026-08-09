@@ -203,7 +203,7 @@ export default function Footer() {
         ========================== */}
         <div className="mt-16 pt-6 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-blue-200/50">
-            <p>© {currentYear} NMHS Hospital. All rights reserved.</p>
+            <p>© {currentYear} NMHS. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <p className="text-blue-200/40 text-xs">
                 Designed by
