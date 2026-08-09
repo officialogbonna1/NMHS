@@ -78,7 +78,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <img
-              src={`${base}assets/ngozi-hospital-logo.jpg`}
+              src={`${base}assets/ngozi-logo.jpg`}
               alt="Ngozi Maternity and Hospital Services"
               className="h-14 w-auto object-contain rounded-lg"
             />
