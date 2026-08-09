@@ -2,20 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- 1. Update favicon path to serve from the subfolder -->
-    <link rel="icon" type="image/svg+xml" href="/NMHS/favicon.svg" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Ngozi Maternity & Hospital Services</title>
 
-    <!-- 2. CRITICAL FIX: Add the base tag here -->
+    <!-- =========================================
+         1. FAVICON (Your Logo as the Browser Tab Icon)
+    ========================================== -->
+    <!-- This points directly to your logo file -->
+    <link
+      rel="icon"
+      type="image/jpeg"
+      href="/NMHS/assets/hospital/ngozi-logo.jpg"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/NMHS/assets/hospital/ngozi-logo.jpg"
+    />
+
+    <!-- =========================================
+         2. BASE TAG (Ensures images load correctly)
+    ========================================== -->
     <base href="/NMHS/" />
+
+    <!-- =========================================
+         3. OPEN GRAPH TAGS (WhatsApp / Facebook / LinkedIn)
+    ========================================== -->
+    <meta property="og:title" content="Ngozi Maternity & Hospital Services" />
+    <meta
+      property="og:description"
+      content="Providing compassionate, modern, and patient-centered healthcare services to the community of Owerrinta and beyond."
+    />
+
+    <!-- For WhatsApp sharing, you can use the logo as well -->
+    <meta
+      property="og:image"
+      content="https://officialogbonna1.github.io/NMHS/assets/hospital/ngozi-logo.jpg"
+    />
+
+    <meta
+      property="og:url"
+      content="https://officialogbonna1.github.io/NMHS/"
+    />
+    <meta property="og:type" content="website" />
+
+    <!-- =========================================
+         4. TWITTER CARD TAGS
+    ========================================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ngozi Maternity & Hospital Services" />
+    <meta
+      name="twitter:description"
+      content="Providing compassionate, modern, and patient-centered healthcare services to the community of Owerrinta and beyond."
+    />
+    <meta
+      name="twitter:image"
+      content="https://officialogbonna1.github.io/NMHS/assets/hospital/ngozi-logo.jpg"
+    />
   </head>
   <body>
     <div id="root"></div>
 
-    <!-- 3. CHANGE THIS BACK TO /src/main.jsx -->
-    <!-- Vite automatically adds the /NMHS/ base during the build! -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
