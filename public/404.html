@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Single Page Application</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      var pathSegmentsToKeep = 1;
+      var location = window.location;
+      var splitUrl = location.pathname.split("/");
+      var newUrl = "";
+      for (var i = 0; i < splitUrl.length; i++) {
+        if (i > pathSegmentsToKeep && splitUrl[i] !== "") {
+          newUrl += "/" + splitUrl[i];
+        }
+      }
+      location.replace(
+        location.protocol +
+          "//" +
+          location.host +
+          location.pathname
+            .split("/")
+            .slice(0, pathSegmentsToKeep + 1)
+            .join("/") +
+          "/?p=" +
+          encodeURIComponent(newUrl),
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
