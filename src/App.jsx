@@ -10,7 +10,7 @@ import NgoziInitiative from "./pages/NgoziInitiative";
 import DevelopmentAfricaFoundation from "./pages/DevelopmentAfricaFoundation";
 import Recruitment from "./pages/Recruitment";
 
-// Scroll to top whenever the page changes
+// Scroll to top whenever the route changes
 function ScrollToTop() {
   const { pathname } = useLocation();
 
