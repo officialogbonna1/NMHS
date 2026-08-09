@@ -1,0 +1,305 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@import "tailwindcss";
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+  --primary: #0d5bd7;
+  --primary-dark: #06429e;
+  --navy: #031b42;
+  --text: #14213d;
+  --muted: #64748b;
+  --light-blue: #f1f7ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Inter", sans-serif;
+
+  color: var(--text);
+  background: #ffffff;
+
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-scale.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero-bg {
+  animation: heroZoom 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(
+    90deg,
+    rgba(241, 247, 255, 0.99) 0%,
+    rgba(241, 247, 255, 0.94) 35%,
+    rgba(241, 247, 255, 0.65) 65%,
+    rgba(241, 247, 255, 0.15) 100%
+  );
+}
+
+@media (max-width: 768px) {
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(241, 247, 255, 0.97) 0%,
+      rgba(241, 247, 255, 0.82) 50%,
+      rgba(241, 247, 255, 0.96) 100%
+    );
+  }
+}
+
+/* =========================================================
+   FLOATING ELEMENTS
+========================================================= */
+
+.float {
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* =========================================================
+   MODERN CARDS
+========================================================= */
+
+.modern-card {
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 25px 55px rgba(3, 27, 66, 0.12);
+
+  border-color: rgba(13, 91, 215, 0.15);
+}
+
+/* =========================================================
+   IMAGE ZOOM
+========================================================= */
+
+.image-zoom {
+  overflow: hidden;
+}
+
+.image-zoom img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.image-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* =========================================================
+   GRADIENT TEXT
+========================================================= */
+
+.gradient-text {
+  background: linear-gradient(90deg, #0d5bd7, #2780ff);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   GLASS EFFECT
+========================================================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.88);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.nav-scrolled {
+  background: rgba(255, 255, 255, 0.92);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow: 0 8px 30px rgba(3, 27, 66, 0.07);
+}
+
+/* =========================================================
+   DECORATIVE BLOBS
+========================================================= */
+
+.blob {
+  position: absolute;
+
+  border-radius: 9999px;
+
+  filter: blur(70px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   EMERGENCY BUTTON
+========================================================= */
+
+.emergency-float {
+  animation: emergencyPulse 2.5s infinite;
+}
+
+@keyframes emergencyPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 15px rgba(239, 68, 68, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
