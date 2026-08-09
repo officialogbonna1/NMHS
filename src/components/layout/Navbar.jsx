@@ -42,16 +42,16 @@ export default function Navbar() {
   };
 
   // =========================================
-  // PAGE & ANCHOR LINKS (UPDATED ORDER)
+  // PAGE & ANCHOR LINKS (REORDERED)
   // =========================================
-  // We moved "Partners" to the end of this list
+  // Contact is now the very last link before the dropdowns
   const anchorLinks = [
     ["Home", "#home"],
     ["About Us", "#about"],
     ["Services", "#services"],
     ["Career", "#career"],
-    ["Contact", "#contact"],
-    ["Partners", "#"], // <--- Moved Partners to the end (last slot)
+    ["Partners", "#"], // <--- Partners moved to 2nd-to-last
+    ["Contact", "#contact"], // <--- Contact is now the very last item!
   ];
 
   return (
@@ -88,8 +88,8 @@ export default function Navbar() {
               DESKTOP NAVIGATION
           ========================== */}
           <nav className="hidden lg:flex items-center gap-6">
-            {/* Render everything EXCEPT Partners normally */}
-            {anchorLinks.slice(0, 5).map(([name, href]) => (
+            {/* Render everything EXCEPT Contact and Partners normally */}
+            {anchorLinks.slice(0, 4).map(([name, href]) => (
               <a
                 key={name}
                 href={href}
@@ -121,7 +121,7 @@ export default function Navbar() {
             ))}
 
             {/* =========================
-                PARTNERS DROPDOWN (NOW ON THE RIGHT)
+                PARTNERS DROPDOWN (2nd to last)
             ========================== */}
             <div
               className="relative"
@@ -312,6 +312,37 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+
+            {/* =========================
+                CONTACT (NOW THE VERY LAST LINK)
+            ========================== */}
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="
+                relative
+                py-2
+                text-sm
+                font-bold
+                text-[#031b42]
+                transition-all
+                duration-300
+                hover:text-white
+
+                after:absolute
+                after:left-0
+                after:bottom-0
+                after:h-[2px]
+                after:w-0
+                after:bg-white
+                after:transition-all
+                after:duration-300
+
+                hover:after:w-full
+              "
+            >
+              Contact
+            </a>
           </nav>
 
           {/* =========================
@@ -394,8 +425,8 @@ export default function Navbar() {
               border-[#031b42]/10
             "
           >
-            {/* Mobile Anchor Links (matching order) */}
-            {anchorLinks.slice(0, 5).map(([name, href]) => (
+            {/* Mobile Anchor Links (reordered) */}
+            {anchorLinks.slice(0, 4).map(([name, href]) => (
               <a
                 key={name}
                 href={href}
@@ -418,7 +449,7 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* Mobile Partners (last item) */}
+            {/* Mobile Partners */}
             <div className="mt-1">
               <button
                 type="button"
@@ -496,6 +527,27 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
+
+            {/* Mobile Contact (Last item before appointment) */}
+            <a
+              href="#contact"
+              onClick={(e) => {
+                handleNavClick(e, "#contact");
+                setOpen(false);
+              }}
+              className="
+                px-4
+                py-3
+                rounded-lg
+                text-sm
+                font-bold
+                text-[#031b42]
+                hover:bg-white/60
+                transition
+              "
+            >
+              Contact
+            </a>
 
             {/* Mobile Appointment Button */}
             <a
