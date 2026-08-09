@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react"; // <--- Import useEffect
+import { useEffect } from "react";
 
 import TopBar from "./components/layout/TopBar";
 import Navbar from "./components/layout/Navbar";
@@ -10,13 +10,11 @@ import NgoziInitiative from "./pages/NgoziInitiative";
 import DevelopmentAfricaFoundation from "./pages/DevelopmentAfricaFoundation";
 import Recruitment from "./pages/Recruitment";
 
-// 1. Create a custom component to handle scrolling
+// Scroll to top whenever the page changes
 function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // This forces the browser to scroll to the top (0, 0)
-    // every time the pathname changes (new page load).
     window.scrollTo(0, 0);
   }, [pathname]);
 
@@ -25,12 +23,11 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/NMHS">
       <TopBar />
       <Navbar />
 
       <main className="pt-[70px]">
-        {/* 2. Add the ScrollToTop component here */}
         <ScrollToTop />
 
         <Routes>
@@ -42,12 +39,13 @@ function App() {
             path="/foundation/ngozi-initiative"
             element={<NgoziInitiative />}
           />
+
           <Route
             path="/foundation/development-africa"
             element={<DevelopmentAfricaFoundation />}
           />
 
-          {/* RECRUITMENT PAGE */}
+          {/* Recruitment */}
           <Route path="/recruitment" element={<Recruitment />} />
         </Routes>
       </main>
@@ -58,3 +56,64 @@ function App() {
 }
 
 export default App;
+
+// import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+// import { useEffect } from "react"; // <--- Import useEffect
+
+// import TopBar from "./components/layout/TopBar";
+// import Navbar from "./components/layout/Navbar";
+// import Footer from "./components/layout/Footer";
+
+// import Home from "./pages/Home";
+// import NgoziInitiative from "./pages/NgoziInitiative";
+// import DevelopmentAfricaFoundation from "./pages/DevelopmentAfricaFoundation";
+// import Recruitment from "./pages/Recruitment";
+
+// // 1. Create a custom component to handle scrolling
+// function ScrollToTop() {
+//   const { pathname } = useLocation();
+
+//   useEffect(() => {
+//     // This forces the browser to scroll to the top (0, 0)
+//     // every time the pathname changes (new page load).
+//     window.scrollTo(0, 0);
+//   }, [pathname]);
+
+//   return null;
+// }
+
+// function App() {
+//   return (
+//     <BrowserRouter>
+//       <TopBar />
+//       <Navbar />
+
+//       <main className="pt-[70px]">
+//         {/* 2. Add the ScrollToTop component here */}
+//         <ScrollToTop />
+
+//         <Routes>
+//           {/* Home Page */}
+//           <Route path="/" element={<Home />} />
+
+//           {/* Foundation Pages */}
+//           <Route
+//             path="/foundation/ngozi-initiative"
+//             element={<NgoziInitiative />}
+//           />
+//           <Route
+//             path="/foundation/development-africa"
+//             element={<DevelopmentAfricaFoundation />}
+//           />
+
+//           {/* RECRUITMENT PAGE */}
+//           <Route path="/recruitment" element={<Recruitment />} />
+//         </Routes>
+//       </main>
+
+//       <Footer />
+//     </BrowserRouter>
+//   );
+// }
+
+// export default App;
