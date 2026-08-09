@@ -31,20 +31,17 @@ export default function Hero() {
         "
       >
         <img
-          src="images/hospital/hero_main.png"
+          src={`${import.meta.env.BASE_URL}assets/hospital/hero_main.png`}
           alt="Ngozi Maternity and Hospital Services"
           className="
-            w-full
-            h-full
-
-            object-contain
-            object-top
-
-            lg:object-cover
-            lg:object-center
-
-            bg-white
-          "
+    w-full
+    h-full
+    object-contain
+    object-top
+    lg:object-cover
+    lg:object-center
+    bg-white
+  "
         />
       </div>
 
