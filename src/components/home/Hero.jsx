@@ -191,7 +191,7 @@ export default function Hero() {
                     text-[#4f00e8]
                   "
                 >
-                  Advanced Medicine
+                  {/* Advanced Medicine */}
                 </span>
               </h1>
             </Reveal>
